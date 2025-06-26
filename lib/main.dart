@@ -10,8 +10,8 @@ import '../login.dart';
 import '../register.dart'; 
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Wajib sebelum async init
-  await Firebase.initializeApp(); // Inisialisasi Firebase
+  WidgetsFlutterBinding.ensureInitialized(); 
+  await Firebase.initializeApp(); 
   runApp(const MyApp());
 }
 

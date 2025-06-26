@@ -5,5 +5,5 @@ class AppRoutes {
   static const scan = '/scan';
   static const profile = '/profile';
   static const login = '/login';
-  static const register = '/login';
+  static const register = '/register';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../login.dart';
 import 'app_routes.dart';
+import '../login.dart';
+import '../register.dart';
 import '../home_page.dart';
 import '../leaderboard.dart';
 import '../edukasi.dart';
@@ -15,5 +16,6 @@ class AppPages {
     AppRoutes.scan: (context) => const ScanPage(),
     AppRoutes.profile: (context) => const ProfilePage(),
     AppRoutes.login: (context) => const LoginPage(),
+    AppRoutes.register: (context) => const RegisterPage(),
   };
 }
