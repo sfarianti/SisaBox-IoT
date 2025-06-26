@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../login.dart';
 import 'app_routes.dart';
 import '../home_page.dart';
 import '../leaderboard.dart';
@@ -13,5 +14,6 @@ class AppPages {
     AppRoutes.edukasi: (context) => const EdukasiPage(),
     AppRoutes.scan: (context) => const ScanPage(),
     AppRoutes.profile: (context) => const ProfilePage(),
+    AppRoutes.login: (context) => const LoginPage(),
   };
 }
