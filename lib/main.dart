@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SisaBox',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.home,
+      initialRoute: AppRoutes.login,
       routes: {
         AppRoutes.home: (context) => const HomePage(),
         AppRoutes.leaderboard: (context) => const LeaderboardPage(),

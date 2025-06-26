@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'register.dart';
-// pastikan path ini sesuai
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -98,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     // Google Button
                     IconButton(
-                      icon: Image.asset('assets/google.png', width: 30), // kamu bisa ganti icon sesuai keinginan
+                      icon: Image.asset('assets/google.png', width: 30), 
                       onPressed: () {
                         //kode
                       }
