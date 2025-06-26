@@ -16,13 +16,13 @@ class NavbarBottom extends StatelessWidget {
         Navigator.pushNamedAndRemoveUntil(context, AppRoutes.edukasi, (route) => false);
         break;
       case 2:
-        // Navigasi ke halaman scan
+        Navigator.pushNamedAndRemoveUntil(context, AppRoutes.scan, (route) => false);
         break;
       case 3:
         Navigator.pushNamedAndRemoveUntil(context, AppRoutes.leaderboard, (route) => false);
         break;
       case 4:
-        // Profile page 
+         Navigator.pushNamedAndRemoveUntil(context, AppRoutes.profile, (route) => false);
         break;
     }
   }
