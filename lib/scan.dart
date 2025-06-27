@@ -44,7 +44,7 @@ class _ScanPageState extends State<ScanPage> {
       final Uint8List imageBytes = await file.readAsBytes();
 
       final model = GenerativeModel(
-        model: 'gemini-1.5-flash', // atau 'gemini-1.5-flash' untuk hasil lebih cepat
+        model: 'gemini-1.5-flash', 
           apiKey: _apiKey,
       );
 
@@ -81,7 +81,7 @@ class _ScanPageState extends State<ScanPage> {
     icon: const Icon(Icons.arrow_back),
     color: Colors.white,
     onPressed: () {
-      Navigator.pop(context); // kembali ke halaman sebelumnya
+      Navigator.pop(context); 
     },
   ),
   title: const Text('Scan Sampah'),

@@ -22,7 +22,7 @@ class NavbarBottom extends StatelessWidget {
         Navigator.pushNamedAndRemoveUntil(context, AppRoutes.leaderboard, (route) => false);
         break;
       case 4:
-         Navigator.pushNamedAndRemoveUntil(context, AppRoutes.profile, (route) => false);
+         Navigator.pushNamedAndRemoveUntil(context, AppRoutes.login, (route) => false);
         break;
     }
   }

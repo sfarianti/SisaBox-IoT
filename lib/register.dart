@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'login.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -10,6 +11,7 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final _emailController = TextEditingController();
+  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmController = TextEditingController();
   final Color greenColor = const Color(0xFF00C853);
@@ -22,10 +24,23 @@ class _RegisterPageState extends State<RegisterPage> {
     }
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      // Buat akun di Firebase Auth
+      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+
+      // Simpan username ke Firestore
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(credential.user!.uid)
+          .set({
+        'email': _emailController.text.trim(),
+        'username': _usernameController.text.trim(),
+        'createdAt': Timestamp.now(),
+      });
+
+      // Arahkan ke halaman login
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginPage()));
     } catch (e) {
       setState(() => _error = 'Gagal registrasi: ${e.toString()}');
@@ -47,6 +62,11 @@ class _RegisterPageState extends State<RegisterPage> {
             TextField(
               controller: _emailController,
               decoration: const InputDecoration(hintText: 'Email', filled: true, fillColor: Colors.white),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _usernameController,
+              decoration: const InputDecoration(hintText: 'Username', filled: true, fillColor: Colors.white),
             ),
             const SizedBox(height: 12),
             TextField(
@@ -81,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 TextButton(
                   onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const LoginPage())),
-                  child: const Text("already have an account? Login", style: TextStyle(color: Colors.white)),
+                  child: const Text("Already have an account? Login", style: TextStyle(color: Colors.white)),
                 ),
               ],
             ),

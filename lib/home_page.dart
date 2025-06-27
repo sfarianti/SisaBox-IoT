@@ -1,17 +1,32 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../widgets/navbar.dart'; 
-// import 'package:http/http.dart' as http;
+import '../widgets/navbar.dart';
+import '../profile.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
-  final Color greenColor = const Color(0xFF00C853); 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final Color greenColor = const Color(0xFF00C853);
+  User? user;
+
+  @override
+  void initState() {
+    super.initState();
+    user = FirebaseAuth.instance.currentUser;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final displayName = user?.displayName ?? user?.email ?? 'Pengguna';
+
     return Scaffold(
       backgroundColor: Colors.grey[100],
-      bottomNavigationBar: const NavbarBottom(currentIndex: 0), 
+      bottomNavigationBar: const NavbarBottom(currentIndex: 0),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -25,16 +40,29 @@ class HomePage extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text('Halo!,', style: TextStyle(color: Colors.white, fontSize: 16)),
-                        Text('Angga', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18)),
-                        Text('#001 🥇', style: TextStyle(color: Colors.white)),
+                      children: [
+                        const Text('Halo!,', style: TextStyle(color: Colors.white, fontSize: 16)),
+                        Text(
+                          displayName,
+                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                        ),
+                        const Text('#001 🥇', style: TextStyle(color: Colors.white)),
                       ],
                     ),
-                    const CircleAvatar(
+                    GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const ProfilePage()),
+                      );
+                    },
+                    child: const CircleAvatar(
                       radius: 25,
-                      backgroundImage: NetworkImage('https://unsplash.com/photos/vibrant-red-flowers-blossom-against-a-dark-background-KRXKpCDHH5I')
-                    )
+                      backgroundImage: NetworkImage(
+                        'https://unsplash.com/photos/vibrant-red-flowers-blossom-against-a-dark-background-KRXKpCDHH5I',
+                      ),
+                    ),
+                  ),
                   ],
                 ),
               ),

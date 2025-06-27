@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import '../firebase_options.dart';
 import 'routes/app_routes.dart';
 import '../home_page.dart';
 import '../leaderboard.dart';
@@ -11,7 +12,9 @@ import '../register.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); 
-  await Firebase.initializeApp(); 
+  await Firebase.initializeApp(
+     options: DefaultFirebaseOptions.currentPlatform,
+  ); 
   runApp(const MyApp());
 }
 
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SisaBox',
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.home,
       routes: {
         AppRoutes.home: (context) => const HomePage(),
         AppRoutes.leaderboard: (context) => const LeaderboardPage(),

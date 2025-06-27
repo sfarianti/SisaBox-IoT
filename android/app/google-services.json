@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "877338330199",
+    "project_id": "sisabox-44bce",
+    "storage_bucket": "sisabox-44bce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877338330199:android:3d8d59db7a848a981a0f12",
+        "android_client_info": {
+          "package_name": "com.example.sisabox"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877338330199-1hiesltb18hl60n9e89e0qm9fvqdd5k6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr3JbGRXIoGDMyLX6i2mOXzNc3TsdupqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877338330199-1hiesltb18hl60n9e89e0qm9fvqdd5k6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

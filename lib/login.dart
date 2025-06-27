@@ -16,16 +16,36 @@ class _LoginPageState extends State<LoginPage> {
   String _error = '';
 
   Future<void> login() async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-      );
-      Navigator.pushReplacementNamed(context, '/home');
-    } catch (e) {
-      setState(() => _error = 'Gagal login: ${e.toString()}');
+  try {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+    );
+    Navigator.pushReplacementNamed(context, '/home');
+  } on FirebaseAuthException catch (e) {
+    String message;
+    switch (e.code) {
+      case 'user-not-found':
+        message = 'Email tidak ditemukan.';
+        break;
+      case 'wrong-password':
+        message = 'Password salah.';
+        break;
+      case 'invalid-email':
+        message = 'Format email tidak valid.';
+        break;
+      case 'user-disabled':
+        message = 'Akun telah dinonaktifkan.';
+        break;
+      default:
+        message = 'Gagal login: ${e.message}';
     }
+    setState(() => _error = message);
+  } catch (e) {
+    setState(() => _error = 'Terjadi kesalahan tidak diketahui.');
   }
+}
+
 
   // Future<void> loginWithGoogle() async {
   //   try {
