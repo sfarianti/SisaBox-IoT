@@ -6,23 +6,23 @@ class EdukasiPage extends StatelessWidget {
 
   final List<Map<String, String>> articles = const [
     {
-      'title': 'Sifat Gunung Sampah Bhuapur, Rasa\'t Salah Kulur',
-      'image': 'assets/images/edukasi1.jpg',
-      'source': 'IDN TIMES',
+      'title': 'Bank Sampah: Inovasi Daur Ulang Ramah Lingkungan',
+      'image': 'assets/edukasi/bank-sampah.jpg',
+      'source': 'mojok.co',
     },
     {
-      'title': 'TPA Butus Dibatasi. Tumpukan Sampah di Kota Amlapura Makin Menjanur',
-      'image': 'assets/images/edukasi2.jpg',
-      'source': 'Times Bali',
+      'title': 'Sampah Organik vs Anorganik',
+      'image': 'assets/edukasi/sampah.jpg',
+      'source': 'republika',
     },
     {
-      'title': 'Ada Lomba Memungut Sampah di Cirebon, Ini Hadiahnya',
-      'image': 'assets/images/edukasi3.jpg',
+      'title': 'Sampah Organik Bisa Jadi Kompos, Yuk Mulai dari Langkah Kecil!',
+      'image': 'assets/edukasi/kompos.jpg',
       'source': 'REPUBLIKA',
     },
     {
-      'title': 'Sampah Manusia Mengotori Mars, NASA Ungkap Fotonya',
-      'image': 'assets/images/edukasi4.jpg',
+      'title': 'Plastik & Kaleng Termasuk Sampah Anorganik, Apa Solusinya?',
+      'image': 'assets/edukasi/anorganik.jpg',
       'source': 'KOMPAS TV',
     },
     {

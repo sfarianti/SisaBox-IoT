@@ -45,7 +45,7 @@ class LeaderboardPage extends StatelessWidget {
             Stack(
               alignment: Alignment.center,
               children: [
-                Image.asset('assets/images/podium.png', height: 120), // Gambar podium
+                Image.asset('assets/profile/user.png', height: 120), // Gambar podium
 
                 Positioned(
                   top: 10,
